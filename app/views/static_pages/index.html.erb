@@ -1,7 +1,9 @@
 <section class="todoapp">
   <header class="header">
     <h1>todos</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus="">
+    <form id="new-form">
+      <input type="text" class="new-todo" />
+    </form>
   </header>
   <section class="main">
     <ul class="todo-list">
@@ -16,6 +18,16 @@
 </section>
 <script>
   $(function() {
+    $('#new-form').submit(function(event){
+      event.preventDefault();
+      var textbox = $('.new-todo');
+      var payload = {
+        task: {
+          title: textbox.val()
+        }
+      };
+      console.log(payload);
+    });
      function taskHtml(task) {
       var checkedStatus = task.done ? "checked" : "";
       var liElement = '<li><div class="view"><input class="toggle" type="checkbox"' +
