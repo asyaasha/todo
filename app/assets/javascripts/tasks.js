@@ -8,6 +8,7 @@
         '><label>' +
          task.title +
          '</label></div></li>';
+
       return liElement;
     }
 
@@ -51,7 +52,8 @@
         var htmlString = taskHtml(data);
         var ulTodos = $('.todo-list');
         ulTodos.append(htmlString);
-        $('.toggle').click(toggleTask);
+        $('.toggle').click(toggleTask)
+        $('new-todo').val('');
       });
     });
   });
